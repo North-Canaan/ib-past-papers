@@ -1,0 +1,303 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    min-height: 100vh;
+    color: #e0e0e0;
+}
+
+header {
+    background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+    padding: 2rem;
+    text-align: center;
+    border-bottom: 2px solid #e94560;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    color: #b0b0b0;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: #0f3460;
+}
+
+.tab-btn {
+    background: transparent;
+    border: 2px solid #e94560;
+    color: #e94560;
+    padding: 0.75rem 2rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.tab-btn:hover, .tab-btn.active {
+    background: #e94560;
+    color: #fff;
+}
+
+main {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.filters {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    background: #0f3460;
+    padding: 1rem;
+    border-radius: 12px;
+}
+
+.filters select, .filters input {
+    padding: 0.6rem 1rem;
+    border: 1px solid #16213e;
+    border-radius: 8px;
+    background: #16213e;
+    color: #e0e0e0;
+    font-size: 0.9rem;
+    min-width: 120px;
+}
+
+.filters input[type="search"] {
+    flex: 1;
+    min-width: 200px;
+}
+
+.filters select:focus, .filters input:focus {
+    outline: none;
+    border-color: #e94560;
+}
+
+/* Sort Toggle */
+.sort-toggle {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    padding: 0.75rem 1rem;
+    background: #0f3460;
+    border-radius: 12px;
+}
+
+.sort-toggle span {
+    color: #b0b0b0;
+    font-weight: 500;
+}
+
+.sort-btn {
+    background: transparent;
+    border: 1px solid #e94560;
+    color: #e94560;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+}
+
+.sort-btn:hover {
+    background: rgba(233, 69, 96, 0.2);
+}
+
+.sort-btn.active {
+    background: #e94560;
+    color: #fff;
+}
+
+/* Tree View Styles */
+.tree-view {
+    background: #16213e;
+    border-radius: 12px;
+    padding: 1rem;
+    font-family: 'SF Mono', 'Monaco', 'Consolas', monospace;
+    font-size: 0.9rem;
+}
+
+.tree-node {
+    margin-left: 0;
+}
+
+.tree-folder {
+    cursor: pointer;
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background 0.2s ease;
+    user-select: none;
+}
+
+.tree-folder:hover {
+    background: #0f3460;
+}
+
+.tree-folder .icon {
+    transition: transform 0.2s ease;
+}
+
+.tree-folder.open .icon {
+    transform: rotate(90deg);
+}
+
+.tree-folder .folder-icon {
+    color: #e94560;
+}
+
+.tree-folder .label {
+    color: #fff;
+    font-weight: 500;
+}
+
+.tree-folder .count {
+    color: #b0b0b0;
+    font-size: 0.8rem;
+    margin-left: auto;
+}
+
+.tree-children {
+    margin-left: 1.5rem;
+    border-left: 1px solid #0f3460;
+    padding-left: 0.5rem;
+    display: none;
+}
+
+.tree-children.open {
+    display: block;
+}
+
+.tree-file {
+    padding: 0.4rem 0.75rem;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background 0.2s ease;
+    text-decoration: none;
+    color: #b0b0b0;
+}
+
+.tree-file:hover {
+    background: #0f3460;
+    color: #fff;
+}
+
+.tree-file .file-icon {
+    color: #4ecca3;
+}
+
+.tree-file.markscheme .file-icon {
+    color: #e94560;
+}
+
+.tree-file.resource .file-icon {
+    color: #f39c12;
+}
+
+.tree-file .tags {
+    display: flex;
+    gap: 0.25rem;
+    margin-left: auto;
+}
+
+.tree-file .tag {
+    background: #0f3460;
+    color: #b0b0b0;
+    padding: 0.15rem 0.5rem;
+    border-radius: 10px;
+    font-size: 0.7rem;
+}
+
+.tree-file .tag.hl { background: #e94560; color: #fff; }
+.tree-file .tag.sl { background: #0f3460; border: 1px solid #e94560; color: #e94560; }
+.tree-file .tag.ms { background: #4ecca3; color: #1a1a2e; }
+.tree-file .tag.tz1 { background: #3498db; color: #fff; }
+.tree-file .tag.tz2 { background: #9b59b6; color: #fff; }
+
+/* Year groups */
+.year-node > .tree-folder {
+    background: linear-gradient(90deg, #0f3460 0%, transparent 100%);
+    font-size: 1.1rem;
+}
+
+.group-node > .tree-folder {
+    color: #e94560;
+}
+
+.subject-node > .tree-folder .label {
+    color: #4ecca3;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.no-results {
+    text-align: center;
+    color: #b0b0b0;
+    padding: 2rem;
+}
+
+/* Specimen paper specific */
+.specimen-file {
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background 0.2s ease;
+    text-decoration: none;
+    color: #b0b0b0;
+}
+
+.specimen-file:hover {
+    background: #0f3460;
+    color: #fff;
+}
+
+.specimen-file .file-icon {
+    color: #f39c12;
+}
+
+@media (max-width: 768px) {
+    .filters {
+        flex-direction: column;
+    }
+    
+    .filters select, .filters input {
+        width: 100%;
+    }
+    
+    .tree-file .tags {
+        display: none;
+    }
+    
+    .sort-toggle {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

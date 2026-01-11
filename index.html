@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IB Papers Directory</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>📚 IB Papers Directory</h1>
+        <p>Browse IB Past Papers and Specimen Papers</p>
+    </header>
+    
+    <nav>
+        <button class="tab-btn active" data-tab="past-papers">Past Papers</button>
+        <button class="tab-btn" data-tab="specimen-papers">Specimen Papers</button>
+    </nav>
+    
+    <main>
+        <section id="past-papers" class="tab-content active">
+            <div class="sort-toggle">
+                <span>Sort by:</span>
+                <button class="sort-btn active" data-sort="year">Year → Group → Subject</button>
+                <button class="sort-btn" data-sort="subject">Group → Subject → Year</button>
+            </div>
+            <div class="filters">
+                <select id="year-filter">
+                    <option value="">All Years</option>
+                </select>
+                <select id="subject-filter">
+                    <option value="">All Subjects</option>
+                </select>
+                <select id="level-filter">
+                    <option value="">All Levels</option>
+                    <option value="HL">HL</option>
+                    <option value="SL">SL</option>
+                    <option value="HLSL">HL/SL</option>
+                </select>
+                <select id="timezone-filter">
+                    <option value="">All Timezones</option>
+                    <option value="TZ0">TZ0</option>
+                    <option value="TZ1">TZ1</option>
+                    <option value="TZ2">TZ2</option>
+                </select>
+                <select id="paper-filter">
+                    <option value="">All Papers</option>
+                    <option value="1">Paper 1</option>
+                    <option value="2">Paper 2</option>
+                    <option value="3">Paper 3</option>
+                </select>
+                <select id="type-filter">
+                    <option value="">All Types</option>
+                    <option value="paper">Papers Only</option>
+                    <option value="markscheme">Mark Schemes Only</option>
+                    <option value="resource">Resources Only</option>
+                </select>
+                <input type="search" id="search" placeholder="Search papers...">
+            </div>
+            <div id="past-papers-tree" class="tree-view"></div>
+        </section>
+        
+        <section id="specimen-papers" class="tab-content">
+            <div class="filters">
+                <select id="specimen-group-filter">
+                    <option value="">All Groups</option>
+                </select>
+                <input type="search" id="specimen-search" placeholder="Search specimen papers...">
+            </div>
+            <div id="specimen-papers-tree" class="tree-view"></div>
+        </section>
+    </main>
+    
+    <script src="app.js"></script>
+</body>
+</html>
